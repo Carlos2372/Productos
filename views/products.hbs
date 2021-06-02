@@ -1,0 +1,39 @@
+
+<table id="mitabla" class="table table-striped table-responsive-md-btn-table" style="color: snow;">
+  <center style="color: snow;"><h1>Datos recopilados</h1></center>
+<thead>
+    <tr>
+      <th class="th-sm">ID</th> {{!-- Scope = negritas --}}
+         <th class="th-sm">Name</th>
+        <th class="th-sm">price</th>
+        <th class="th-sm">category</th>
+        <th class="th-sm">description</th>
+         <th class="th-sm">picture</th>
+        <th>Options</th>
+    </tr>
+  </thead>
+<tbody>
+    {{!-- Con estto recibiremos datos de la base de datos y se pone variable de routes --}}
+    {{#products}}
+    <tr>
+        <br>
+        <td>{{_id}}</td>
+        <td>{{name}}</td>
+        <td>{{price}}</td>
+        <td>{{category}}</td>
+        <td>{{description}}</td>
+        <td>{{picture}}</td>
+        <td>
+              <form action="/api/product/{{_id}}" method="GET">
+                <button class="btn btn-primary" type="submit">Editar</button>
+              </form>
+            </td>
+            <td>
+              <form action="/api/product/{{_id}}" method="GET">
+                <button class="btn btn-primary" type="submit">Eliminar</button>
+              </form>
+            </td>
+    </tr>
+    {{/products}}
+</tbody>
+</table>
